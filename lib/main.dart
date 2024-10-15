@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:yoliday_assignment/components/bottom_nav_bar.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
           home: child,
         );
       },
-      child: const MyHomePage(title: 'First Method'),
+      child: const BottomNavBar(),
     );
   }
 }
