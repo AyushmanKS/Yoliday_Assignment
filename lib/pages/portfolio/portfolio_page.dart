@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'project_page.dart';
+import 'saved_page.dart';
+import 'shared_page.dart';
+import 'achievement_page.dart';
 
 class PortfolioPage extends StatefulWidget {
   const PortfolioPage({super.key});
@@ -9,20 +13,27 @@ class PortfolioPage extends StatefulWidget {
 }
 
 class _PortfolioPageState extends State<PortfolioPage> {
+  int _currentIndex = 0;
+
+  final List<Widget> _pages = [
+    const ProjectPage(),
+    const SavedPage(),
+    const SharedPage(),
+    const AchievementPage(),
+  ];
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: _pages.length, // Use the length of _pages
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize:
-              const Size.fromHeight(160.0), // Set the height of the AppBar
+          preferredSize: const Size.fromHeight(160.0),
           child: Container(
             margin: const EdgeInsets.only(top: 60),
             child: AppBar(
               title: const Padding(
-                padding: EdgeInsets.symmetric(
-                    horizontal: 8.0), // Padding only for title
+                padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text('Portfolio'),
               ),
               actions: [
@@ -43,13 +54,17 @@ class _PortfolioPageState extends State<PortfolioPage> {
                   ),
                 ),
               ],
-              bottom: const TabBar(
-                //isScrollable: true,
+              bottom: TabBar(
                 indicatorColor: Colors.orange,
                 labelColor: Colors.orange,
                 unselectedLabelColor: Colors.black,
                 indicatorSize: TabBarIndicatorSize.label,
-                tabs: [
+                onTap: (index) {
+                  setState(() {
+                    _currentIndex = index;
+                  });
+                },
+                tabs: const [
                   Tab(text: 'Project'),
                   Tab(text: 'Saved'),
                   Tab(text: 'Shared'),
@@ -59,13 +74,8 @@ class _PortfolioPageState extends State<PortfolioPage> {
             ),
           ),
         ),
-        body: const TabBarView(
-          children: [
-            Center(child: Text('Project Content')),
-            Center(child: Text('Saved Content')),
-            Center(child: Text('Shared Content')),
-            Center(child: Text('Achievement Content')),
-          ],
+        body: TabBarView(
+          children: _pages,
         ),
       ),
     );
