@@ -36,37 +36,47 @@ class _BottomNavBarState extends State<BottomNavBar> {
           ProfilePage(),
         ],
       ),
-      bottomNavigationBar: ClipRRect(
-        borderRadius: const BorderRadius.only(
-          // Curving edges of bottom nav bar
-          topLeft: Radius.circular(28.0),
-          topRight: Radius.circular(28.0),
-        ),
-        child: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          items: <BottomNavigationBarItem>[
-            BottomNavigationBarItem(
-              icon: _buildNavItem('assets/images/icons/Home svg.svg', 0),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: _buildNavItem('assets/images/icons/Portfolio svg.svg', 1),
-              label: 'Portfolio',
-            ),
-            BottomNavigationBarItem(
-              icon: _buildNavItem('assets/images/icons/Input svg.svg', 2),
-              label: 'Input',
-            ),
-            BottomNavigationBarItem(
-              icon: _buildNavItem('assets/images/icons/Profile svg.svg', 3),
-              label: 'Profile',
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.1),
+              blurRadius: 10,
+              offset: const Offset(0, -1),
             ),
           ],
-          currentIndex: selectedIndex,
-          selectedItemColor: const Color(0xFFDF5532),
-          unselectedItemColor: const Color(0xFFd6d1d5),
-          onTap: onItemTapped,
-          backgroundColor: Colors.white,
+        ),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(28.0),
+            topRight: Radius.circular(28.0),
+          ),
+          child: BottomNavigationBar(
+            type: BottomNavigationBarType.fixed,
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                icon: _buildNavItem('assets/images/icons/Home svg.svg', 0),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: _buildNavItem('assets/images/icons/Portfolio svg.svg', 1),
+                label: 'Portfolio',
+              ),
+              BottomNavigationBarItem(
+                icon: _buildNavItem('assets/images/icons/Input svg.svg', 2),
+                label: 'Input',
+              ),
+              BottomNavigationBarItem(
+                icon: _buildNavItem('assets/images/icons/Profile svg.svg', 3),
+                label: 'Profile',
+              ),
+            ],
+            currentIndex: selectedIndex,
+            selectedItemColor: const Color(0xFFDF5532),
+            unselectedItemColor: const Color(0xFFd6d1d5),
+            onTap: onItemTapped,
+            backgroundColor: Colors.white,
+          ),
         ),
       ),
     );

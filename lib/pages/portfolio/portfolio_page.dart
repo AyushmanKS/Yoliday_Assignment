@@ -13,7 +13,7 @@ class PortfolioPage extends StatefulWidget {
 }
 
 class _PortfolioPageState extends State<PortfolioPage> {
-  int _currentIndex = 0;
+  int selectedIndex = 0;
 
   final List<Widget> _pages = [
     const ProjectPage(),
@@ -25,13 +25,14 @@ class _PortfolioPageState extends State<PortfolioPage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: _pages.length, // Use the length of _pages
+      length: _pages.length,
       child: Scaffold(
         appBar: PreferredSize(
           preferredSize: const Size.fromHeight(160.0),
           child: Container(
             margin: const EdgeInsets.only(top: 60),
             child: AppBar(
+              backgroundColor: Colors.white,
               title: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
                 child: Text('Portfolio'),
@@ -61,7 +62,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                 indicatorSize: TabBarIndicatorSize.label,
                 onTap: (index) {
                   setState(() {
-                    _currentIndex = index;
+                    selectedIndex = index;
                   });
                 },
                 tabs: const [
@@ -77,24 +78,6 @@ class _PortfolioPageState extends State<PortfolioPage> {
         body: TabBarView(
           children: _pages,
         ),
-        floatingActionButton: ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFFdf5532),
-          ),
-          child: const Row(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Icon(Icons.filter_list, color: Colors.white),
-              SizedBox(width: 5),
-              Text(
-                'Filter',
-                style: TextStyle(color: Colors.white),
-              ),
-            ],
-          ),
-        ),
-        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );
   }
