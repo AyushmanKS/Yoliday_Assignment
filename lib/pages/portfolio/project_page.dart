@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:yoliday_assignment/components/custom_search_textfield.dart';
-import 'package:yoliday_assignment/components/filter_Button.dart';
+import 'package:yoliday_assignment/components/filter_button.dart';
 
 class ProjectPage extends StatelessWidget {
   const ProjectPage({super.key});
@@ -33,7 +33,7 @@ class ProjectPage extends StatelessWidget {
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(15.0),
                         border: Border.all(
-                          color: const Color(0xFFd6d1d5), // Border color
+                          color: const Color(0xFFd6d1d5),
                           width: 1.0,
                         ),
                       ),
@@ -42,7 +42,7 @@ class ProjectPage extends StatelessWidget {
                         child: Row(
                           children: [
                             Image.asset(
-                              imagePaths[index], // Display appropriate image
+                              imagePaths[index],
                               width: 120,
                               height: 120,
                               fit: BoxFit.contain,
@@ -60,6 +60,7 @@ class ProjectPage extends StatelessWidget {
                                       fontSize: 14,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black,
+                                      fontFamily: 'Roboto', // Use Roboto font
                                     ),
                                   ),
                                   const SizedBox(height: 28),
@@ -73,24 +74,25 @@ class ProjectPage extends StatelessWidget {
                                               style: TextStyle(
                                                 fontSize: 12,
                                                 color: Colors.black,
+                                                fontFamily:
+                                                    'Roboto', // Use Roboto font
                                               ),
                                             ),
                                             TextSpan(
                                               text: 'Oleh Al-Baiqi Samaan',
                                               style: TextStyle(
                                                 fontSize: 12,
-                                                color: Color(
-                                                    0xFF9E95A2), // Updated color for this text
+                                                color: Color(0xFF9E95A2),
+                                                fontFamily:
+                                                    'Roboto', // Use Roboto font
                                               ),
                                             ),
                                           ],
                                         ),
                                       ),
-                                      const SizedBox(
-                                          width:
-                                              60), // Space between text and button
+                                      const SizedBox(width: 60),
                                       Container(
-                                        width: 55, // 'A' button height width
+                                        width: 55,
                                         height: 30,
                                         decoration: BoxDecoration(
                                           gradient: const LinearGradient(
@@ -120,6 +122,8 @@ class ProjectPage extends StatelessWidget {
                                             style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 12,
+                                              fontFamily:
+                                                  'Roboto', // Use Roboto font
                                             ),
                                           ),
                                         ),

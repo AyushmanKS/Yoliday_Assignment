@@ -9,9 +9,14 @@ class CustomSearchTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextField(
+      style: const TextStyle(
+        fontFamily: 'Roboto', // Specify the font family here
+        color: Colors.black, // Set the color for input text
+      ),
       decoration: InputDecoration(
         hintText: 'Select a project',
         hintStyle: const TextStyle(
+          fontFamily: 'Roboto', // Specify the font family for hint text
           color: Color(0xFFd6d1d5),
         ),
         border: OutlineInputBorder(

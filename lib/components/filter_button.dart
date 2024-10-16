@@ -19,7 +19,10 @@ class FilterButton extends StatelessWidget {
           SizedBox(width: 5),
           Text(
             'Filter',
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(
+              color: Colors.white,
+              fontFamily: 'Roboto', // Specify the font family here
+            ),
           ),
         ],
       ),

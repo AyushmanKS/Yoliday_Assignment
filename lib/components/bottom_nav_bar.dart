@@ -14,7 +14,6 @@ class BottomNavBar extends StatefulWidget {
 
 class _BottomNavBarState extends State<BottomNavBar> {
   int selectedIndex = 0;
-
   PageController pageController = PageController();
 
   void onItemTapped(int index) {
@@ -76,6 +75,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
             unselectedItemColor: const Color(0xFFd6d1d5),
             onTap: onItemTapped,
             backgroundColor: Colors.white,
+            selectedLabelStyle: const TextStyle(fontFamily: 'Roboto'),
+            unselectedLabelStyle: const TextStyle(fontFamily: 'Roboto'),
           ),
         ),
       ),

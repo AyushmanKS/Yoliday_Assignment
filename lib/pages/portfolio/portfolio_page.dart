@@ -35,7 +35,12 @@ class _PortfolioPageState extends State<PortfolioPage> {
               backgroundColor: Colors.white,
               title: const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 8.0),
-                child: Text('Portfolio'),
+                child: Text(
+                  'Portfolio',
+                  style: TextStyle(
+                    fontFamily: 'Roboto', // Use Roboto font for title
+                  ),
+                ),
               ),
               actions: [
                 Padding(
@@ -66,10 +71,38 @@ class _PortfolioPageState extends State<PortfolioPage> {
                   });
                 },
                 tabs: const [
-                  Tab(text: 'Project'),
-                  Tab(text: 'Saved'),
-                  Tab(text: 'Shared'),
-                  Tab(text: 'Achievement'),
+                  Tab(
+                    child: Text(
+                      'Project',
+                      style: TextStyle(
+                        fontFamily: 'Roboto', // Use Roboto font for tab labels
+                      ),
+                    ),
+                  ),
+                  Tab(
+                    child: Text(
+                      'Saved',
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                      ),
+                    ),
+                  ),
+                  Tab(
+                    child: Text(
+                      'Shared',
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                      ),
+                    ),
+                  ),
+                  Tab(
+                    child: Text(
+                      'Achievement',
+                      style: TextStyle(
+                        fontFamily: 'Roboto',
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
