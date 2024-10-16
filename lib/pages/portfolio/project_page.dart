@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:yoliday_assignment/components/custom_search_textfield.dart';
+import 'package:yoliday_assignment/components/filter_Button.dart';
 
 class ProjectPage extends StatelessWidget {
   const ProjectPage({super.key});
@@ -19,55 +20,11 @@ class ProjectPage extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
-            TextField(
-              decoration: InputDecoration(
-                hintText: 'Select a project',
-                hintStyle: const TextStyle(
-                  color: Color(0xFFd6d1d5), // Set hint text color
-                ),
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(
-                    color: Color(0xFFd6d1d5), // Set border color
-                  ),
-                ),
-                enabledBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(
-                    color: Color(0xFFd6d1d5), // Border color when enabled
-                  ),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: const BorderSide(
-                    color: Color(0xFFd6d1d5), // Border color when focused
-                  ),
-                ),
-                suffixIcon: Padding(
-                  padding: const EdgeInsets.only(right: 4, top: 4, bottom: 4),
-                  child: Container(
-                    padding: const EdgeInsets.all(10.0),
-                    decoration: BoxDecoration(
-                      color: const Color(0xFFdf5532),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: SvgPicture.asset(
-                      'assets/images/icons/ic_baseline-search.svg',
-                      width: 14,
-                      height: 14,
-                      colorFilter: const ColorFilter.mode(
-                        Colors.white,
-                        BlendMode.srcIn,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            const CustomSearchTextField(),
             const SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
-                itemCount: imagePaths.length, // 5 items
+                itemCount: imagePaths.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -183,23 +140,7 @@ class ProjectPage extends StatelessWidget {
           ],
         ),
       ),
-      floatingActionButton: ElevatedButton(
-        onPressed: () {},
-        style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFFdf5532),
-        ),
-        child: const Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Icon(Icons.filter_list, color: Colors.white),
-            SizedBox(width: 5),
-            Text(
-              'Filter',
-              style: TextStyle(color: Colors.white),
-            ),
-          ],
-        ),
-      ),
+      floatingActionButton: const FilterButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
