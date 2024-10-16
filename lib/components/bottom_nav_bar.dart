@@ -80,14 +80,16 @@ class _BottomNavBarState extends State<BottomNavBar> {
           Container(
             height: 3,
             width: 30,
-            color: Colors.orange,
+            color: const Color(0xFFdf5532),
           ),
         const SizedBox(height: 5),
         SvgPicture.asset(
           svgPath,
           height: 25,
           colorFilter: ColorFilter.mode(
-            selectedIndex == index ? Colors.orange : const Color(0xFFd6d1d5),
+            selectedIndex == index
+                ? const Color(0xFFdf5532)
+                : const Color(0xFFd6d1d5),
             BlendMode.srcIn,
           ),
         ),
