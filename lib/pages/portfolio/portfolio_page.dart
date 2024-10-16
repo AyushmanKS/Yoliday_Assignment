@@ -77,6 +77,24 @@ class _PortfolioPageState extends State<PortfolioPage> {
         body: TabBarView(
           children: _pages,
         ),
+        floatingActionButton: ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFFdf5532),
+          ),
+          child: const Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.filter_list, color: Colors.white),
+              SizedBox(width: 5),
+              Text(
+                'Filter',
+                style: TextStyle(color: Colors.white),
+              ),
+            ],
+          ),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       ),
     );
   }
