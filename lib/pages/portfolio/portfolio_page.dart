@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'project_page.dart';
 import 'saved_page.dart';
 import 'shared_page.dart';
@@ -28,35 +29,35 @@ class _PortfolioPageState extends State<PortfolioPage> {
       length: _pages.length,
       child: Scaffold(
         appBar: PreferredSize(
-          preferredSize: const Size.fromHeight(160.0),
+          preferredSize: Size.fromHeight(160.h),
           child: Container(
-            margin: const EdgeInsets.only(top: 60),
+            margin: EdgeInsets.only(top: 60.h),
             child: AppBar(
               backgroundColor: Colors.white,
-              title: const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 8.0),
-                child: Text(
+              title: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 8.w),
+                child: const Text(
                   'Portfolio',
                   style: TextStyle(
-                    fontFamily: 'Roboto', // Use Roboto font for title
+                    fontFamily: 'Roboto',
                   ),
                 ),
               ),
               actions: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  padding: EdgeInsets.symmetric(horizontal: 8.w),
                   child: SvgPicture.asset(
                     'assets/images/icons/ic_round-shopping-bag.svg',
-                    width: 28,
-                    height: 28,
+                    width: 28.w,
+                    height: 28.h,
                   ),
                 ),
                 Padding(
-                  padding: const EdgeInsets.only(left: 20, right: 20.0),
+                  padding: EdgeInsets.only(left: 20.w, right: 20.w),
                   child: SvgPicture.asset(
                     'assets/images/icons/Vector.svg',
-                    width: 28,
-                    height: 28,
+                    width: 28.w,
+                    height: 28.h,
                   ),
                 ),
               ],
@@ -74,33 +75,25 @@ class _PortfolioPageState extends State<PortfolioPage> {
                   Tab(
                     child: Text(
                       'Project',
-                      style: TextStyle(
-                        fontFamily: 'Roboto',
-                      ),
+                      style: TextStyle(fontFamily: 'Roboto'),
                     ),
                   ),
                   Tab(
                     child: Text(
                       'Saved',
-                      style: TextStyle(
-                        fontFamily: 'Roboto',
-                      ),
+                      style: TextStyle(fontFamily: 'Roboto'),
                     ),
                   ),
                   Tab(
                     child: Text(
                       'Shared',
-                      style: TextStyle(
-                        fontFamily: 'Roboto',
-                      ),
+                      style: TextStyle(fontFamily: 'Roboto'),
                     ),
                   ),
                   Tab(
                     child: Text(
                       'Achievement',
-                      style: TextStyle(
-                        fontFamily: 'Roboto',
-                      ),
+                      style: TextStyle(fontFamily: 'Roboto'),
                     ),
                   ),
                 ],

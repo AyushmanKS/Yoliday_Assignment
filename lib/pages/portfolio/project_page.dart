@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:yoliday_assignment/components/custom_search_textfield.dart';
 import 'package:yoliday_assignment/components/filter_button.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ProjectPage extends StatefulWidget {
   const ProjectPage({super.key});
@@ -27,7 +28,7 @@ class _ProjectPageState extends State<ProjectPage> {
   @override
   void initState() {
     super.initState();
-    _filteredProjects = _projects; // Initially, show all projects
+    _filteredProjects = _projects;
   }
 
   void _filterProjects(String query) {
@@ -44,119 +45,122 @@ class _ProjectPageState extends State<ProjectPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: EdgeInsets.all(10.w),
         child: Column(
           children: [
-            CustomSearchTextField(
-              onSearch: _filterProjects, // Pass the search function
-            ),
-            const SizedBox(height: 20),
+            CustomSearchTextField(onSearch: _filterProjects),
+            SizedBox(height: 20.h),
             Expanded(
               child: ListView.builder(
                 itemCount: _filteredProjects.length,
                 itemBuilder: (context, index) {
                   return Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
+                    padding: EdgeInsets.symmetric(vertical: 8.h),
                     child: Container(
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(15.0),
+                        borderRadius: BorderRadius.circular(15.r),
                         border: Border.all(
                           color: const Color(0xFFd6d1d5),
-                          width: 1.0,
+                          width: 1.w,
                         ),
                       ),
                       child: SizedBox(
-                        height: 120,
+                        height: 120.h,
                         child: Row(
                           children: [
                             Image.asset(
                               _filteredProjects[index]['imagePath']!,
-                              width: 120,
-                              height: 120,
+                              width: 120.w,
+                              height: 120.h,
                               fit: BoxFit.contain,
                             ),
-                            const SizedBox(width: 10),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    _filteredProjects[index]['title']!,
-                                    style: const TextStyle(
-                                      fontSize: 14,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black,
-                                      fontFamily: 'Roboto',
+                            SizedBox(width: 10.w),
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsets.all(8.w),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      _filteredProjects[index]['title']!,
+                                      style: TextStyle(
+                                        fontSize: 14.sp,
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.black,
+                                        fontFamily: 'Roboto',
+                                      ),
                                     ),
-                                  ),
-                                  const SizedBox(height: 28),
-                                  Row(
-                                    children: [
-                                      RichText(
-                                        text: const TextSpan(
-                                          children: [
-                                            TextSpan(
-                                              text: 'BAHASA SUNDA\n',
+                                    SizedBox(height: 28.h),
+                                    Row(
+                                      children: [
+                                        Expanded(
+                                          child: RichText(
+                                            text: const TextSpan(
+                                              children: [
+                                                TextSpan(
+                                                  text: 'BAHASA SUNDA\n',
+                                                  style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: Colors.black,
+                                                    fontFamily: 'Roboto',
+                                                  ),
+                                                ),
+                                                TextSpan(
+                                                  text: 'Oleh Al-Baiqi Samaan',
+                                                  style: TextStyle(
+                                                    fontSize: 12,
+                                                    color: Color(0xFF9E95A2),
+                                                    fontFamily: 'Roboto',
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ),
+                                        SizedBox(width: 10.w),
+                                        Container(
+                                          width: 55.w,
+                                          height: 30.h,
+                                          decoration: BoxDecoration(
+                                            gradient: const LinearGradient(
+                                              begin: Alignment.topLeft,
+                                              end: Alignment.bottomRight,
+                                              colors: [
+                                                Color(0xFFF39519),
+                                                Color(0xFFFFCD67),
+                                              ],
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(5.r),
+                                          ),
+                                          child: ElevatedButton(
+                                            onPressed: () {},
+                                            style: ElevatedButton.styleFrom(
+                                              padding: EdgeInsets.zero,
+                                              shape: RoundedRectangleBorder(
+                                                borderRadius:
+                                                    BorderRadius.circular(5.r),
+                                              ),
+                                              backgroundColor:
+                                                  Colors.transparent,
+                                              shadowColor: Colors.transparent,
+                                            ),
+                                            child: Text(
+                                              'A',
                                               style: TextStyle(
-                                                fontSize: 12,
-                                                color: Colors.black,
+                                                color: Colors.white,
+                                                fontSize: 12.sp,
                                                 fontFamily: 'Roboto',
                                               ),
                                             ),
-                                            TextSpan(
-                                              text: 'Oleh Al-Baiqi Samaan',
-                                              style: TextStyle(
-                                                fontSize: 12,
-                                                color: Color(0xFF9E95A2),
-                                                fontFamily: 'Roboto',
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      const SizedBox(width: 60),
-                                      Container(
-                                        width: 55,
-                                        height: 30,
-                                        decoration: BoxDecoration(
-                                          gradient: const LinearGradient(
-                                            begin: Alignment.topLeft,
-                                            end: Alignment.bottomRight,
-                                            colors: [
-                                              Color(0xFFF39519),
-                                              Color(0xFFFFCD67),
-                                            ],
-                                          ),
-                                          borderRadius:
-                                              BorderRadius.circular(5),
-                                        ),
-                                        child: ElevatedButton(
-                                          onPressed: () {},
-                                          style: ElevatedButton.styleFrom(
-                                            padding: EdgeInsets.zero,
-                                            shape: RoundedRectangleBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(5),
-                                            ),
-                                            backgroundColor: Colors.transparent,
-                                            shadowColor: Colors.transparent,
-                                          ),
-                                          child: const Text(
-                                            'A',
-                                            style: TextStyle(
-                                              color: Colors.white,
-                                              fontSize: 12,
-                                              fontFamily: 'Roboto',
-                                            ),
                                           ),
                                         ),
-                                      ),
-                                    ],
-                                  )
-                                ],
+                                      ],
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ],
