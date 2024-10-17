@@ -2,29 +2,58 @@ import 'package:flutter/material.dart';
 import 'package:yoliday_assignment/components/custom_search_textfield.dart';
 import 'package:yoliday_assignment/components/filter_button.dart';
 
-class ProjectPage extends StatelessWidget {
+class ProjectPage extends StatefulWidget {
   const ProjectPage({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final List<String> imagePaths = [
-      'assets/images/img_1.png',
-      'assets/images/img_2.png',
-      'assets/images/img_3.png',
-      'assets/images/img_4.png',
-      'assets/images/img_5.png',
-    ];
+  _ProjectPageState createState() => _ProjectPageState();
+}
 
+class _ProjectPageState extends State<ProjectPage> {
+  final List<Map<String, String>> _projects = [
+    {
+      'title': 'Kemampuan Merangkum \nTulisan',
+      'imagePath': 'assets/images/img_1.png'
+    },
+    {'title': 'Project B', 'imagePath': 'assets/images/img_2.png'},
+    {'title': 'Project C', 'imagePath': 'assets/images/img_3.png'},
+    {'title': 'Project D', 'imagePath': 'assets/images/img_4.png'},
+    {'title': 'Project E', 'imagePath': 'assets/images/img_5.png'},
+  ];
+
+  List<Map<String, String>> _filteredProjects = [];
+  String _searchQuery = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _filteredProjects = _projects; // Initially, show all projects
+  }
+
+  void _filterProjects(String query) {
+    setState(() {
+      _searchQuery = query.toLowerCase();
+      _filteredProjects = _projects
+          .where((project) =>
+              project['title']!.toLowerCase().contains(_searchQuery))
+          .toList();
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
         padding: const EdgeInsets.all(10.0),
         child: Column(
           children: [
-            const CustomSearchTextField(),
+            CustomSearchTextField(
+              onSearch: _filterProjects, // Pass the search function
+            ),
             const SizedBox(height: 20),
             Expanded(
               child: ListView.builder(
-                itemCount: imagePaths.length,
+                itemCount: _filteredProjects.length,
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -42,7 +71,7 @@ class ProjectPage extends StatelessWidget {
                         child: Row(
                           children: [
                             Image.asset(
-                              imagePaths[index],
+                              _filteredProjects[index]['imagePath']!,
                               width: 120,
                               height: 120,
                               fit: BoxFit.contain,
@@ -54,13 +83,13 @@ class ProjectPage extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  const Text(
-                                    'Kemampuan Merangkum \nTulisan',
-                                    style: TextStyle(
+                                  Text(
+                                    _filteredProjects[index]['title']!,
+                                    style: const TextStyle(
                                       fontSize: 14,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black,
-                                      fontFamily: 'Roboto', // Use Roboto font
+                                      fontFamily: 'Roboto',
                                     ),
                                   ),
                                   const SizedBox(height: 28),
@@ -74,8 +103,7 @@ class ProjectPage extends StatelessWidget {
                                               style: TextStyle(
                                                 fontSize: 12,
                                                 color: Colors.black,
-                                                fontFamily:
-                                                    'Roboto', // Use Roboto font
+                                                fontFamily: 'Roboto',
                                               ),
                                             ),
                                             TextSpan(
@@ -83,8 +111,7 @@ class ProjectPage extends StatelessWidget {
                                               style: TextStyle(
                                                 fontSize: 12,
                                                 color: Color(0xFF9E95A2),
-                                                fontFamily:
-                                                    'Roboto', // Use Roboto font
+                                                fontFamily: 'Roboto',
                                               ),
                                             ),
                                           ],
@@ -122,8 +149,7 @@ class ProjectPage extends StatelessWidget {
                                             style: TextStyle(
                                               color: Colors.white,
                                               fontSize: 12,
-                                              fontFamily:
-                                                  'Roboto', // Use Roboto font
+                                              fontFamily: 'Roboto',
                                             ),
                                           ),
                                         ),

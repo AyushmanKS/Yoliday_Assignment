@@ -75,7 +75,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                     child: Text(
                       'Project',
                       style: TextStyle(
-                        fontFamily: 'Roboto', // Use Roboto font for tab labels
+                        fontFamily: 'Roboto',
                       ),
                     ),
                   ),

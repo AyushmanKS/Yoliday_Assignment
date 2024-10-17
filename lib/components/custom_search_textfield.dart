@@ -2,21 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomSearchTextField extends StatelessWidget {
+  final Function(String) onSearch;
+
   const CustomSearchTextField({
     super.key,
+    required this.onSearch,
   });
 
   @override
   Widget build(BuildContext context) {
     return TextField(
       style: const TextStyle(
-        fontFamily: 'Roboto', // Specify the font family here
-        color: Colors.black, // Set the color for input text
+        fontFamily: 'Roboto',
+        color: Colors.black,
       ),
       decoration: InputDecoration(
         hintText: 'Select a project',
         hintStyle: const TextStyle(
-          fontFamily: 'Roboto', // Specify the font family for hint text
+          fontFamily: 'Roboto',
           color: Color(0xFFd6d1d5),
         ),
         border: OutlineInputBorder(
@@ -57,6 +60,7 @@ class CustomSearchTextField extends StatelessWidget {
           ),
         ),
       ),
+      onChanged: onSearch, // Call the callback whenever the input changes
     );
   }
 }
