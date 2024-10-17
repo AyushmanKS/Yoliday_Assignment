@@ -12,7 +12,8 @@ class BottomNavBar extends StatefulWidget {
   State<BottomNavBar> createState() => _BottomNavBarState();
 }
 
-class _BottomNavBarState extends State<BottomNavBar> {
+class _BottomNavBarState extends State<BottomNavBar>
+    with SingleTickerProviderStateMixin {
   int selectedIndex = 0;
   PageController pageController = PageController();
 
@@ -50,33 +51,38 @@ class _BottomNavBarState extends State<BottomNavBar> {
             topLeft: Radius.circular(28.0),
             topRight: Radius.circular(28.0),
           ),
-          child: BottomNavigationBar(
-            type: BottomNavigationBarType.fixed,
-            items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                icon: _buildNavItem('assets/images/icons/Home svg.svg', 0),
-                label: 'Home',
-              ),
-              BottomNavigationBarItem(
-                icon: _buildNavItem('assets/images/icons/Portfolio svg.svg', 1),
-                label: 'Portfolio',
-              ),
-              BottomNavigationBarItem(
-                icon: _buildNavItem('assets/images/icons/Input svg.svg', 2),
-                label: 'Input',
-              ),
-              BottomNavigationBarItem(
-                icon: _buildNavItem('assets/images/icons/Profile svg.svg', 3),
-                label: 'Profile',
-              ),
-            ],
-            currentIndex: selectedIndex,
-            selectedItemColor: const Color(0xFFDF5532),
-            unselectedItemColor: const Color(0xFFd6d1d5),
-            onTap: onItemTapped,
-            backgroundColor: Colors.white,
-            selectedLabelStyle: const TextStyle(fontFamily: 'Roboto'),
-            unselectedLabelStyle: const TextStyle(fontFamily: 'Roboto'),
+          child: AnimatedContainer(
+            duration: const Duration(milliseconds: 300), // Animation duration
+            curve: Curves.easeInOut, // Animation curve
+            child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              items: <BottomNavigationBarItem>[
+                BottomNavigationBarItem(
+                  icon: _buildNavItem('assets/images/icons/Home svg.svg', 0),
+                  label: 'Home',
+                ),
+                BottomNavigationBarItem(
+                  icon:
+                      _buildNavItem('assets/images/icons/Portfolio svg.svg', 1),
+                  label: 'Portfolio',
+                ),
+                BottomNavigationBarItem(
+                  icon: _buildNavItem('assets/images/icons/Input svg.svg', 2),
+                  label: 'Input',
+                ),
+                BottomNavigationBarItem(
+                  icon: _buildNavItem('assets/images/icons/Profile svg.svg', 3),
+                  label: 'Profile',
+                ),
+              ],
+              currentIndex: selectedIndex,
+              selectedItemColor: const Color(0xFFDF5532),
+              unselectedItemColor: const Color(0xFFd6d1d5),
+              onTap: onItemTapped,
+              backgroundColor: Colors.white,
+              selectedLabelStyle: const TextStyle(fontFamily: 'Roboto'),
+              unselectedLabelStyle: const TextStyle(fontFamily: 'Roboto'),
+            ),
           ),
         ),
       ),

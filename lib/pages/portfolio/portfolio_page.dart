@@ -39,8 +39,7 @@ class _PortfolioPageState extends State<PortfolioPage> {
                 child: const Text(
                   'Portfolio',
                   style: TextStyle(
-                    fontFamily: 'Roboto',
-                  ),
+                      fontFamily: 'Roboto', fontWeight: FontWeight.bold),
                 ),
               ),
               actions: [
@@ -75,25 +74,33 @@ class _PortfolioPageState extends State<PortfolioPage> {
                   Tab(
                     child: Text(
                       'Project',
-                      style: TextStyle(fontFamily: 'Roboto'),
+                      style: TextStyle(
+                          fontFamily: 'Roboto',
+                          fontSize: 12), // Adjust font size
                     ),
                   ),
                   Tab(
                     child: Text(
                       'Saved',
-                      style: TextStyle(fontFamily: 'Roboto'),
+                      style: TextStyle(
+                          fontFamily: 'Roboto',
+                          fontSize: 12), // Adjust font size
                     ),
                   ),
                   Tab(
                     child: Text(
                       'Shared',
-                      style: TextStyle(fontFamily: 'Roboto'),
+                      style: TextStyle(
+                          fontFamily: 'Roboto',
+                          fontSize: 12), // Adjust font size
                     ),
                   ),
                   Tab(
                     child: Text(
                       'Achievement',
-                      style: TextStyle(fontFamily: 'Roboto'),
+                      style: TextStyle(
+                          fontFamily: 'Roboto',
+                          fontSize: 12), // Adjust font size
                     ),
                   ),
                 ],
